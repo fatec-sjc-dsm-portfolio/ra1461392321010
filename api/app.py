@@ -2,6 +2,9 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+app.config["FREEZER_DESTINATION"] = "build"
+app.config["FREEZER_RELATIVE_URLS"] = True
+
 @app.route("/")
 def home():
     return render_template("home.html")
@@ -9,7 +12,7 @@ def home():
 
 
 
-@app.route("/servicos")
+@app.route("/servicos/")
 def servicos():
 
     cards_beneficios_site = [{"beneficio": "Protótipo Navegável", "descricao": "Sujeito a sua aprovação antes da construção do site real", "imagem": "/static/img/icone_prototipo.png", "cor": ""}, 
@@ -37,14 +40,14 @@ def servicos():
 
 
 
-@app.route("/sobre_mim")
+@app.route("/sobre_mim/")
 def sobre():
     return render_template("sobre_mim.html")
 
 
 
 
-@app.route("/formacao")
+@app.route("/formacao/")
 def formacao():
 
     formacao = [{"nome": "FATEC São José dos Campos - Prof. Jessen Vidal", "curso": "Tecnólogo em Desenvolvimento de Software Multiplataforma", "data": "ago 2023 - ago 2026", "texto_pequeno": "Grade do curso:",
@@ -73,7 +76,7 @@ def formacao():
 
 
 
-@app.route("/projetos")
+@app.route("/projetos/")
 def projetos():
     
     projetos = [{"nome": "Criança Renal", "descricao": "(FATEC API - 1° SEM) Site destinado a conscientizar a população sobre crianças que sofrem de Insuficiência Renal Crônica (IRC), com uma página de blog", "imagem": "/static/img/card_nefro.png", "link": "https://github.com/TeamHiveAPI/API-2023.2", "botao_escrito": "Repositório", "modal": "1"},
@@ -93,9 +96,6 @@ def projetos():
     ]
     
     return render_template("projetos.html", projetos = projetos, projetos_prof = projetos_prof)
-
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
