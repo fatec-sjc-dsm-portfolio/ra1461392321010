@@ -1,451 +1,470 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %} Home | Marco A. {% endblock %} {%
+block content %}
 
-{% block title %} Home | Marco A. {% endblock %}
+<main>
+  <div class="hero_banner_servicos ignora_margem">
+    <h1 class="hero_banner_servicos_titulo diminuir_margem">
+      Seu site dos sonhos está a
+    </h1>
 
-    {% block content %}
+    <div class="texto_pixel">
+      <h1
+        class="hero_banner_servicos_titulo hidden_onload"
+        id="texto_num_pixel_esq"
+      >
+        100
+      </h1>
+      <h1
+        class="hero_banner_servicos_titulo hidden_onload"
+        id="texto_num_pixel_dir"
+      >
+        pixels
+      </h1>
+      <h1 class="hero_banner_servicos_titulo" id="texto_num_pixel_responsivo">
+        poucos pixels
+      </h1>
+    </div>
 
-    <main>
-        <div class="hero_banner_servicos ignora_margem">
-            <h1 class="hero_banner_servicos_titulo diminuir_margem">Seu site dos sonhos está a</h1>
-            <div class="texto_pixel">
-                <h1 class="hero_banner_servicos_titulo hidden_onload" id="texto_num_pixel_esq">100</h1>
-                <h1 class="hero_banner_servicos_titulo hidden_onload" id="texto_num_pixel_dir">pixels</h1>
-                <h1 class="hero_banner_servicos_titulo" id="texto_num_pixel_responsivo">poucos pixels</h1>
-            </div>
-            <h1 class="hero_banner_servicos_titulo margem_bottom">de distância</h1>
-            <button class="botao_azul_accordion" id="botao_contato"> Contato <img class="icone_enviar" id="botao_contato_img" src="/static/img/enviar.png"> </button>
-            <div class="botao_azul_contato" id="detalhe_contato">
-                <div class="botao_azul_contato_fileira">
-                    <p>LinkedIn</p>
-                    <a href="https://www.linkedin.com/in/marco-antonio-arantes/" target="_blank"> <img src="/static/img/linkedin.png"></a>
-                </div>
-                <hr class="hr_contato">
-                <div class="botao_azul_contato_fileira">
-                    <p>Github</p>
-                    <a href="https://github.com/maarantes" target="_blank"> <img src="/static/img/github.png"></a>
-                </div>
-                <hr class="hr_contato">
-                <div class="botao_azul_contato_fileira">
-                    <p>Behance</p>
-                    <a href="https://www.behance.net/marcoaarantes" target="_blank"> <img src="/static/img/behance.png"></a>
-                </div>
-                <hr class="hr_contato">
-                <div class="botao_azul_contato_fileira">
-                    <p>Escrever E-Mail</p>
-                    <a href="mailto:marcoantoniopou@gmail.com?subject=Comissão" target="_blank"> <img src="/static/img/email.png"></a>
-                </div>
-                
-            </div>
-            <p class="hero_banner_servicos_paragrafo">Saiba mais</p>
-            <img src="/static/img/setinha_servicos.png" class="hero_banner_servicos_setinha">
+    <h1 class="hero_banner_servicos_titulo margem_bottom">de distância</h1>
+
+    <button class="botao_azul_accordion" id="botao_contato">
+      Contato
+      <img
+        class="icone_enviar"
+        id="botao_contato_img"
+        src="{{ url_for('static', filename='img/enviar.png') }}"
+      />
+    </button>
+
+    <div class="botao_azul_contato" id="detalhe_contato">
+      <div class="botao_azul_contato_fileira">
+        <p>LinkedIn</p>
+        <a
+          href="https://www.linkedin.com/in/marco-antonio-arantes/"
+          target="_blank"
+        >
+          <img src="{{ url_for('static', filename='img/linkedin.png') }}" />
+        </a>
+      </div>
+
+      <hr class="hr_contato" />
+
+      <div class="botao_azul_contato_fileira">
+        <p>Github</p>
+        <a href="https://github.com/maarantes" target="_blank">
+          <img src="{{ url_for('static', filename='img/github.png') }}" />
+        </a>
+      </div>
+
+      <hr class="hr_contato" />
+
+      <div class="botao_azul_contato_fileira">
+        <p>Behance</p>
+        <a href="https://www.behance.net/marcoaarantes" target="_blank">
+          <img src="{{ url_for('static', filename='img/behance.png') }}" />
+        </a>
+      </div>
+
+      <hr class="hr_contato" />
+
+      <div class="botao_azul_contato_fileira">
+        <p>Escrever E-Mail</p>
+        <a
+          href="mailto:marcoantoniopou@gmail.com?subject=Comissão"
+          target="_blank"
+        >
+          <img src="{{ url_for('static', filename='img/email.png') }}" />
+        </a>
+      </div>
+    </div>
+
+    <p class="hero_banner_servicos_paragrafo">Saiba mais</p>
+
+    <img
+      src="{{ url_for('static', filename='img/setinha_servicos.png') }}"
+      class="hero_banner_servicos_setinha"
+    />
+  </div>
+
+  <!-- BENEFÍCIOS SITE -->
+  <section class="secao_cards ignora_margem reveal">
+    <div class="card_beneficio_wrapper">
+      {% for item in cards_beneficios_site %}
+      <div class="card_beneficio">
+        <div class="card_beneficio_cima {{ item.cor }}">
+          <img
+            src="{{ url_for('static', filename=item.imagem.replace('/static/', '')) }}"
+          />
+          <h1>{{ item.beneficio }}</h1>
+        </div>
+        <div class="card_beneficio_baixo {{ item.cor }}">
+          <p>{{ item.descricao }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <hr class="divisoria_diferente" />
+
+  <!-- BENEFÍCIOS BRANDING -->
+  <section class="secao_cards ignora_margem reveal">
+    <div class="card_beneficio_wrapper">
+      {% for item in cards_beneficios_branding %}
+      <div class="card_beneficio">
+        <div class="card_beneficio_cima {{ item.cor }}">
+          <img
+            src="{{ url_for('static', filename=item.imagem.replace('/static/', '')) }}"
+          />
+          <h1>{{ item.beneficio }}</h1>
+        </div>
+        <div class="card_beneficio_baixo {{ item.cor }}">
+          <p>{{ item.descricao }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section class="secao_avaliacoes">
+    <div class="secao_avaliacoes_track animation">
+      {% for item in cards_avaliacoes %}
+      <div class="avaliacoes_card">
+        <div class="avaliacoes_card_cima">
+          <img
+            src="{{ url_for('static', filename=item.foto.replace('/static/', '')) }}"
+          />
+          <div>
+            <p>{{ item.nome }}</p>
+            <p>{{ item.empresa }}</p>
+          </div>
         </div>
 
-        <div class="freelance_site_titulo">
-            <h1>Freelance de sites: <span class="gradient">Online!</span></h1>
-            <p>Veja os benefícios ao me contratar para construir seu site</p>
+        <hr />
+
+        <div>
+          <p>{{ item.texto }}</p>
         </div>
 
-        <section class="secao_cards ignora_margem reveal">
-            <div class="card_beneficio_wrapper">
-                {% for item in cards_beneficios_site %}
-                <div class="card_beneficio">
-                    <div class="card_beneficio_cima {{ item.cor }}">
-                        <img src={{ item.imagem }}>
-                        <h1>{{ item.beneficio }}</h1>
-                    </div>
-                    <div class="card_beneficio_baixo {{ item.cor }}">
-                        <p>{{ item.descricao }}</p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>            
-        </section>
-
-        <hr class="divisoria_diferente">
-
-        <div class="freelance_site_titulo">
-            <h1>Branding de marcas</h1>
-            <p>Também é possível me comissionar para fazer o branding da sua marca</p>
+        <div>
+          <img
+            src="{{ url_for('static', filename='img/estrelas_5_gradient.png') }}"
+          />
+          <p>{{ item.data }}</p>
         </div>
-
-        <section class="secao_cards ignora_margem reveal">
-            <div class="card_beneficio_wrapper">
-                {% for item in cards_beneficios_branding %}
-                <div class="card_beneficio">
-                    <div class="card_beneficio_cima {{ item.cor }}">
-                        <img src="{{ item.imagem }}">
-                        <h1>{{ item.beneficio }}</h1>
-                    </div>
-                    <div class="card_beneficio_baixo {{ item.cor }}">
-                        <p>{{ item.descricao }}</p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>            
-        </section>
-
-        <section class="secao_avaliacoes">
-            <div class="secao_avaliacoes_transicao esquerda"> </div>
-            <div class="secao_avaliacoes_transicao direita"> </div>
-            <div class="secao_avaliacoes_titulo">
-                <h1>Avaliações de clientes satisfeitos</h1>
-                <p id="secao_avaliacoes_dica">Sobreponha o cursor do mouse em um cartão para pausar a animação</p>
-            </div>
-
-            <div class="secao_avaliacoes_slider animation" id="secao_avaliacoes_slider"></div>
-                <div class="secao_avaliacoes_track animation" id="secao_avaliacoes_track">
-                    {% for item in cards_avaliacoes %}
-                    <div class="avaliacoes_card">
-                        <div class="avaliacoes_card_cima">
-                            <img src="{{ item.foto }}">
-                            <div class="avaliacoes_card_cima_escrito">
-                                <p>{{ item.nome }}</p>
-                                <p>{{ item.empresa }}</p>
-                            </div>
-                        </div>
-                        <hr class="avaliacoes_card_divisoria">
-                        <div class="avaliacoes_card_baixo">
-                            <p>{{ item.texto }}</p>
-                        </div>
-                        <div class="avaliacoes_card_baixo_estrelas">
-                            <img src="/static/img/estrelas_5_gradient.png">
-                            <p>{{ item.data }}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-
-                    {% for item in cards_avaliacoes %}
-                    <div class="avaliacoes_card copia_slider">
-                        <div class="avaliacoes_card_cima">
-                            <img src="{{ item.foto }}">
-                            <div class="avaliacoes_card_cima_escrito">
-                                <p>{{ item.nome }}</p>
-                                <p>{{ item.empresa }}</p>
-                            </div>
-                        </div>
-                        <hr class="avaliacoes_card_divisoria">
-                        <div class="avaliacoes_card_baixo">
-                            <p>{{ item.texto }}</p>
-                        </div>
-                        <div class="avaliacoes_card_baixo_estrelas">
-                            <img src="/static/img/estrelas_5_gradient.png">
-                            <p>{{ item.data }}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-
-            </div>
-
-            <div class="botoes_scroll aparecer_antes">
-                <button class="botao_scroll aparecer_antes" onclick="rolar_tras()">
-                <img src="/static/img/seta_scroll.png">
-                </button>
-                <button class="botao_scroll aparecer_antes" onclick="rolar_frente()">
-                <img src="/static/img/seta_scroll.png">
-                </button>
-            </div>
-
-        </section>
-
-        <section class="secao_convite">
-            <div class="secao_convite_escrito"></div>
-                <h1 class="gradient">O que você está esperando?</h1>
-                <div class="secao_convite_botao">
-                    <button class="botao_azul botao_maior" id="botao_final_pagina">Contato <img src="/static/img/seta_scroll.png"></button>
-                </div>
-            </div>
-            <div class="efeito_montanha">
-                <img class="montanha_frente" draggable="false" src="/static/img/montanha_frente.png">
-            </div>
-        </section>
-
-        <script>
-            
-            var width = window.innerWidth;
-
-            // Responsividade slider de cards
-
-            var texto_dica = document.getElementById("secao_avaliacoes_dica");
-            var slider = document.getElementById("secao_avaliacoes_slider");
-            var track = document.getElementById("secao_avaliacoes_track");
-            var card_avaliacoes_copia = document.querySelectorAll(".avaliacoes_card.copia_slider");
-            
-            document.addEventListener("DOMContentLoaded", make_responsive);
-
-            function make_responsive() {
-                if (width < 835) {
-                    texto_dica.textContent = "Use os botões de rolagem para navegar entre os cartões";
-                } else if (width < 1440) {
-                    texto_dica.textContent = "Toque em um cartão para pausar a animação e expandí-lo";
-                }
-
-                if (width < 835) {
-                    slider.classList.remove("animation");
-                    track.classList.remove("animation");
-
-                    for (var i = 0; i < card_avaliacoes_copia.length; i++) {
-                        card_avaliacoes_copia[i].style.display = "none";
-                    }
-                }
-
-            }
-
-            // Botões Scroll Mobile
-
-            const scroll_cards = document.getElementById("secao_avaliacoes_track");
-            var card_flex_shrink = document.querySelectorAll(".avaliacoes_card");
-            var botoes_scroll = document.querySelector(".botoes_scroll");
-
-            function rolar_frente() {
-                scroll_cards.scrollLeft += (width * 0.9) + 32;
-            }
-
-            function rolar_tras() {
-                scroll_cards.scrollLeft -= (width * 0.9) + 32;
-            }
-
-            if (width < 835) {
-                scroll_cards.style.width = "90%";
-                scroll_cards.style.overflow = "hidden";
-                
-                for (var i = 0; i < card_flex_shrink.length; i++) {
-                    card_flex_shrink[i].style.flexShrink = "0";
-                }
-            }
-
-            // Fazer com que a barra de rolagem começe sempre começe do 1° card ao invés de um card aleatório
-
-            document.addEventListener("DOMContentLoaded", function() {
-                document.getElementById('secao_avaliacoes_track').scrollLeft = 0;
-            });
-
-
-
-
-            // Aumentar card em foco e diminuir cards vizinhos
-
-            let card = document.querySelectorAll(".avaliacoes_card");
-
-            card.forEach((img, index) => {
-                img.addEventListener('mouseover', () => {
-                    if (width > 835) {
-                        img.style.transform = 'scale(1.15)';
-                    
-                        if (index > 0) {
-                            card[index - 1].style.transform = 'scale(0.85)';
-                        }
-                        if (index < card.length - 1) {
-                            card[index + 1].style.transform = 'scale(0.85)';
-                        }
-                    }
-                });
-            
-                img.addEventListener('mouseout', () => {
-                    if (width > 835) {
-                        img.style.transform = 'scale(1)';
-                        if (index > 0) {
-                            card[index - 1].style.transform = 'scale(1)';
-                        }
-                        if (index < card.length - 1) {
-                            card[index + 1].style.transform = 'scale(1)';
-                        }
-                    }
-                });
-            });
-
-
-
-
-            // Medir Distância Cursor Botão
-
-            var botao_contato = document.getElementById("botao_contato");
-            var texto_esq = document.getElementById("texto_num_pixel_esq");
-            var texto_dir = document.getElementById("texto_num_pixel_dir");
-            var texto_responsivo = document.getElementById("texto_num_pixel_responsivo");
-
-            document.addEventListener("DOMContentLoaded", function() {
-                if (width > 1440) {
-                    texto_esq.style.display = "flex";
-                    texto_dir.style.display = "flex";
-                    texto_responsivo.style.display = "none";
-                } else {
-                    texto_esq.style.display = "none";
-                    texto_dir.style.display = "none";
-                    texto_responsivo.style.display = "flex";
-                }
-            });
-
-            document.addEventListener("mousemove", function(event) {
-                if (width > 1440) {
-                    var mouseX = event.clientX;
-                    var mouseY = event.clientY;
-
-                    var buttonRect = botao_contato.getBoundingClientRect();
-                    var buttonX = buttonRect.left + buttonRect.width / 2;
-                    var buttonY = buttonRect.top + buttonRect.height / 2;
-
-                    var distance = Math.sqrt(Math.pow(mouseX - buttonX, 2) + Math.pow(mouseY - buttonY, 2));
-                    distance = Math.round(distance);
-
-                    if (distance > 999) {
-                        distance = 999;
-                    }
-
-                    texto_esq.textContent = distance.toString().padStart(3, "0");
-
-                    texto_esq.style.display = "flex";
-                    texto_dir.style.display = "flex";
-                    texto_responsivo.style.display = "none";
-                } else {
-                    texto_esq.style.display = "none";
-                    texto_dir.style.display = "none";
-                    texto_responsivo.style.display = "flex";
-                }
-            });
-
-            botao_contato.addEventListener("mouseover", function() {
-                texto_esq.classList.add("sobreposicao_botao");
-                texto_dir.classList.add("sobreposicao_botao");
-            });
-
-            botao_contato.addEventListener("mouseout", function() {
-                texto_esq.classList.remove("sobreposicao_botao");
-                texto_dir.classList.remove("sobreposicao_botao");
-            });
-
-
-
-
-            // Accordion personalizado
-
-            var botao_contato = document.getElementById("botao_contato");
-            var botao_contato_img = document.getElementById("botao_contato_img");
-            var detalhe_contato = document.getElementById("detalhe_contato");
-
-            var isOpen = false;
-
-            document.getElementById("botao_contato").addEventListener("click", function() {
-                isOpen = !isOpen; // Inverte o estado do accordion a cada clique
-                accordion(isOpen);
-            });
-
-            function accordion(open) { // O parâmetro open pega o valor do isOpen (true ou false)
-                if (width > 768) {
-                    if (open) {
-                        detalhe_contato.style.height = "335px";
-                        detalhe_contato.style.width = "512px";
-                        detalhe_contato.style.opacity = "1";
-                        botao_contato.style.width = "512px";
-                        botao_contato.style.borderRadius = "24px 24px 0px 0px";
-                        botao_contato_img.style.rotate = "90deg";
-                    } else {
-                        detalhe_contato.style.height = "0px";
-                        detalhe_contato.style.width = "256px";
-                        detalhe_contato.style.opacity = "0";
-                        botao_contato.style.width = "256px";
-                        botao_contato.style.borderRadius = "24px";
-                        botao_contato_img.style.rotate = "00deg";
-                    }
-                } else {
-                    if (open) {
-                        detalhe_contato.style.height = "335px";
-                        detalhe_contato.style.width = "75%";
-                        detalhe_contato.style.opacity = "1";
-                        botao_contato.style.width = "75%";
-                        botao_contato.style.borderRadius = "24px 24px 0px 0px";
-                        botao_contato_img.style.rotate = "90deg";
-                    } else {
-                        detalhe_contato.style.height = "0px";
-                        detalhe_contato.style.opacity = "0";
-                        botao_contato.style.borderRadius = "24px";
-                        botao_contato_img.style.rotate = "00deg";
-                    }
-                }
-            }
-
-
-
-
-            // Rolar até o botão de contato
-
-            document.getElementById("botao_final_pagina").addEventListener("click", function() {
-                window.scrollTo(0, 0);
-                isOpen = false;
-                accordion(isOpen);
-                window.requestAnimationFrame(function checkScroll() {
-                    if (window.scrollY == 0 && window.scrollX == 0) {
-                        botao_contato.classList.add("accordion_animacao");
-                        setTimeout(function() {
-                            botao_contato.classList.remove("accordion_animacao");
-                        }, 2500);
-                    } else {
-                        window.requestAnimationFrame(checkScroll);
-                    }
-                });
-            });
-
-
-
-
-            // Padronizar cores dos cards (responsividade)
-
-            var card_beneficio_cima = document.querySelectorAll(".card_beneficio_cima");
-            var card_beneficio_baixo = document.querySelectorAll(".card_beneficio_baixo");
-
-            function adjustClasses(cards) {
-                cards.forEach(function(card) {
-                    card.classList.remove("azul_2", "azul_3", "azul_4");
-
-                    if (card.classList.contains("laranja_2") || card.classList.contains("laranja_3")) {
-                        card.classList.remove("laranja_2", "laranja_3");
-                        card.classList.add("laranja_1");
-                    }
-                });
-            }
-
-            window.onload = function() {
-                if (window.innerWidth < 1250) {
-                    adjustClasses(card_beneficio_cima);
-                    adjustClasses(card_beneficio_baixo);
-                }
-            }
-
-
-
-
-            // Revelar seção ao scrollar
-
-            window.addEventListener("scroll", reveal);
-
-            function reveal() {
-                var reveal_section = document.querySelectorAll(".reveal");
-                for (var i = 0; i < reveal_section.length; i++) {
-                    var windowHeight = window.innerHeight;
-                    var revealTop = reveal_section[i].getBoundingClientRect().top;
-                    var revealPoint = 100;
-
-                    if(revealTop < windowHeight - revealPoint){
-                        reveal_section[i].classList.add("active_reveal");
-                    }
-                    else {
-                        reveal_section[i].classList.remove("active");
-                    }
-
-                }
-            }
-
-
-
-
-            // Tirar Margin Top do Footer
-            
-            document.addEventListener("DOMContentLoaded", function() {
-                let footer = document.getElementById("footer");
-                footer.style.marginTop = "0px";
-            });
-
-        </script>
-
-    </main>
-
-    {% endblock %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="botoes_scroll">
+      <button onclick="rolar_tras()">
+        <img src="{{ url_for('static', filename='img/seta_scroll.png') }}" />
+      </button>
+      <button onclick="rolar_frente()">
+        <img src="{{ url_for('static', filename='img/seta_scroll.png') }}" />
+      </button>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="secao_convite">
+    <h1 class="gradient">O que você está esperando?</h1>
+
+    <div class="secao_convite_botao">
+      <button class="botao_azul botao_maior">
+        Contato
+        <img src="{{ url_for('static', filename='img/seta_scroll.png') }}" />
+      </button>
+    </div>
+
+    <div class="efeito_montanha">
+      <img
+        class="montanha_frente"
+        draggable="false"
+        src="{{ url_for('static', filename='img/montanha_frente.png') }}"
+      />
+    </div>
+  </section>
+
+  <script>
+    var width = window.innerWidth;
+
+    // Responsividade slider de cards
+
+    var texto_dica = document.getElementById("secao_avaliacoes_dica");
+    var slider = document.getElementById("secao_avaliacoes_slider");
+    var track = document.getElementById("secao_avaliacoes_track");
+    var card_avaliacoes_copia = document.querySelectorAll(
+      ".avaliacoes_card.copia_slider",
+    );
+
+    document.addEventListener("DOMContentLoaded", make_responsive);
+
+    function make_responsive() {
+      if (width < 835) {
+        texto_dica.textContent =
+          "Use os botões de rolagem para navegar entre os cartões";
+      } else if (width < 1440) {
+        texto_dica.textContent =
+          "Toque em um cartão para pausar a animação e expandí-lo";
+      }
+
+      if (width < 835) {
+        slider.classList.remove("animation");
+        track.classList.remove("animation");
+
+        for (var i = 0; i < card_avaliacoes_copia.length; i++) {
+          card_avaliacoes_copia[i].style.display = "none";
+        }
+      }
+    }
+
+    // Botões Scroll Mobile
+
+    const scroll_cards = document.getElementById("secao_avaliacoes_track");
+    var card_flex_shrink = document.querySelectorAll(".avaliacoes_card");
+    var botoes_scroll = document.querySelector(".botoes_scroll");
+
+    function rolar_frente() {
+      scroll_cards.scrollLeft += width * 0.9 + 32;
+    }
+
+    function rolar_tras() {
+      scroll_cards.scrollLeft -= width * 0.9 + 32;
+    }
+
+    if (width < 835) {
+      scroll_cards.style.width = "90%";
+      scroll_cards.style.overflow = "hidden";
+
+      for (var i = 0; i < card_flex_shrink.length; i++) {
+        card_flex_shrink[i].style.flexShrink = "0";
+      }
+    }
+
+    // Fazer com que a barra de rolagem começe sempre começe do 1° card ao invés de um card aleatório
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.getElementById("secao_avaliacoes_track").scrollLeft = 0;
+    });
+
+    // Aumentar card em foco e diminuir cards vizinhos
+
+    let card = document.querySelectorAll(".avaliacoes_card");
+
+    card.forEach((img, index) => {
+      img.addEventListener("mouseover", () => {
+        if (width > 835) {
+          img.style.transform = "scale(1.15)";
+
+          if (index > 0) {
+            card[index - 1].style.transform = "scale(0.85)";
+          }
+          if (index < card.length - 1) {
+            card[index + 1].style.transform = "scale(0.85)";
+          }
+        }
+      });
+
+      img.addEventListener("mouseout", () => {
+        if (width > 835) {
+          img.style.transform = "scale(1)";
+          if (index > 0) {
+            card[index - 1].style.transform = "scale(1)";
+          }
+          if (index < card.length - 1) {
+            card[index + 1].style.transform = "scale(1)";
+          }
+        }
+      });
+    });
+
+    // Medir Distância Cursor Botão
+
+    var botao_contato = document.getElementById("botao_contato");
+    var texto_esq = document.getElementById("texto_num_pixel_esq");
+    var texto_dir = document.getElementById("texto_num_pixel_dir");
+    var texto_responsivo = document.getElementById(
+      "texto_num_pixel_responsivo",
+    );
+
+    document.addEventListener("DOMContentLoaded", function () {
+      if (width > 1440) {
+        texto_esq.style.display = "flex";
+        texto_dir.style.display = "flex";
+        texto_responsivo.style.display = "none";
+      } else {
+        texto_esq.style.display = "none";
+        texto_dir.style.display = "none";
+        texto_responsivo.style.display = "flex";
+      }
+    });
+
+    document.addEventListener("mousemove", function (event) {
+      if (width > 1440) {
+        var mouseX = event.clientX;
+        var mouseY = event.clientY;
+
+        var buttonRect = botao_contato.getBoundingClientRect();
+        var buttonX = buttonRect.left + buttonRect.width / 2;
+        var buttonY = buttonRect.top + buttonRect.height / 2;
+
+        var distance = Math.sqrt(
+          Math.pow(mouseX - buttonX, 2) + Math.pow(mouseY - buttonY, 2),
+        );
+        distance = Math.round(distance);
+
+        if (distance > 999) {
+          distance = 999;
+        }
+
+        texto_esq.textContent = distance.toString().padStart(3, "0");
+
+        texto_esq.style.display = "flex";
+        texto_dir.style.display = "flex";
+        texto_responsivo.style.display = "none";
+      } else {
+        texto_esq.style.display = "none";
+        texto_dir.style.display = "none";
+        texto_responsivo.style.display = "flex";
+      }
+    });
+
+    botao_contato.addEventListener("mouseover", function () {
+      texto_esq.classList.add("sobreposicao_botao");
+      texto_dir.classList.add("sobreposicao_botao");
+    });
+
+    botao_contato.addEventListener("mouseout", function () {
+      texto_esq.classList.remove("sobreposicao_botao");
+      texto_dir.classList.remove("sobreposicao_botao");
+    });
+
+    // Accordion personalizado
+
+    var botao_contato = document.getElementById("botao_contato");
+    var botao_contato_img = document.getElementById("botao_contato_img");
+    var detalhe_contato = document.getElementById("detalhe_contato");
+
+    var isOpen = false;
+
+    document
+      .getElementById("botao_contato")
+      .addEventListener("click", function () {
+        isOpen = !isOpen; // Inverte o estado do accordion a cada clique
+        accordion(isOpen);
+      });
+
+    function accordion(open) {
+      // O parâmetro open pega o valor do isOpen (true ou false)
+      if (width > 768) {
+        if (open) {
+          detalhe_contato.style.height = "335px";
+          detalhe_contato.style.width = "512px";
+          detalhe_contato.style.opacity = "1";
+          botao_contato.style.width = "512px";
+          botao_contato.style.borderRadius = "24px 24px 0px 0px";
+          botao_contato_img.style.rotate = "90deg";
+        } else {
+          detalhe_contato.style.height = "0px";
+          detalhe_contato.style.width = "256px";
+          detalhe_contato.style.opacity = "0";
+          botao_contato.style.width = "256px";
+          botao_contato.style.borderRadius = "24px";
+          botao_contato_img.style.rotate = "00deg";
+        }
+      } else {
+        if (open) {
+          detalhe_contato.style.height = "335px";
+          detalhe_contato.style.width = "75%";
+          detalhe_contato.style.opacity = "1";
+          botao_contato.style.width = "75%";
+          botao_contato.style.borderRadius = "24px 24px 0px 0px";
+          botao_contato_img.style.rotate = "90deg";
+        } else {
+          detalhe_contato.style.height = "0px";
+          detalhe_contato.style.opacity = "0";
+          botao_contato.style.borderRadius = "24px";
+          botao_contato_img.style.rotate = "00deg";
+        }
+      }
+    }
+
+    // Rolar até o botão de contato
+
+    document
+      .getElementById("botao_final_pagina")
+      .addEventListener("click", function () {
+        window.scrollTo(0, 0);
+        isOpen = false;
+        accordion(isOpen);
+        window.requestAnimationFrame(function checkScroll() {
+          if (window.scrollY == 0 && window.scrollX == 0) {
+            botao_contato.classList.add("accordion_animacao");
+            setTimeout(function () {
+              botao_contato.classList.remove("accordion_animacao");
+            }, 2500);
+          } else {
+            window.requestAnimationFrame(checkScroll);
+          }
+        });
+      });
+
+    // Padronizar cores dos cards (responsividade)
+
+    var card_beneficio_cima = document.querySelectorAll(".card_beneficio_cima");
+    var card_beneficio_baixo = document.querySelectorAll(
+      ".card_beneficio_baixo",
+    );
+
+    function adjustClasses(cards) {
+      cards.forEach(function (card) {
+        card.classList.remove("azul_2", "azul_3", "azul_4");
+
+        if (
+          card.classList.contains("laranja_2") ||
+          card.classList.contains("laranja_3")
+        ) {
+          card.classList.remove("laranja_2", "laranja_3");
+          card.classList.add("laranja_1");
+        }
+      });
+    }
+
+    window.onload = function () {
+      if (window.innerWidth < 1250) {
+        adjustClasses(card_beneficio_cima);
+        adjustClasses(card_beneficio_baixo);
+      }
+    };
+
+    // Revelar seção ao scrollar
+
+    window.addEventListener("scroll", reveal);
+
+    function reveal() {
+      var reveal_section = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveal_section.length; i++) {
+        var windowHeight = window.innerHeight;
+        var revealTop = reveal_section[i].getBoundingClientRect().top;
+        var revealPoint = 100;
+
+        if (revealTop < windowHeight - revealPoint) {
+          reveal_section[i].classList.add("active_reveal");
+        } else {
+          reveal_section[i].classList.remove("active");
+        }
+      }
+    }
+
+    // Tirar Margin Top do Footer
+
+    document.addEventListener("DOMContentLoaded", function () {
+      let footer = document.getElementById("footer");
+      footer.style.marginTop = "0px";
+    });
+  </script>
+</main>
+
+{% endblock %}
