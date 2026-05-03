@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>Formação | Marco A.</title>
+</head>
+
+<body>
+    <header id="top" class="navbar">
+        <img src="img/logo_azul.png" alt="Logo Marco A.">
+        <div class="navbar_hamburguer">
+            <div class="navbar_hamburguer_linha"></div>
+            <div class="navbar_hamburguer_linha"></div>
+            <div class="navbar_hamburguer_linha"></div>
+        </div>
+        <nav class="navbar_menu">
+            <a href="index.html" class="navbar_menu_item" id="nav_home">Home</a>
+            <a href="sobre_mim.html" class="navbar_menu_item" id="nav_sobre">Sobre mim</a>
+            <a href="formacao.html" class="navbar_menu_item" id="nav_formacao">Formação</a>
+            <a href="projetos.html" class="navbar_menu_item" id="nav_projetos">Projetos</a>
+        </nav>
+    </header>
+
+    <hr class="divisoria_navbar">
+
+    <main class="margem">
+
+        <section class="hero_banner_compacto">
+            <h1 class="hero_banner_compacto_titulo">Formação</h1>
+            <p class="hero_banner_compacto_subtitulo"> Confira abaixo minha formação completa</p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h1 class="card_cursos_titulo">Instituições de ensino:</h1>
+            <div class="card_cursos_wrapper" id="formacao-container"></div>
+        </section>
+
+        <hr>
+
+        <section class="habilidades">
+            <h1 class="habilidades_titulo">Habilidades</h1>
+            <div class="hab_parte">
+                <img src="img/estrelas_5.png" alt="5 estrelas">
+                <h2>Inglês (Fluente)</h2>
+            </div>
+            <hr class="hab_divisoria">
+            <div class="hab_parte">
+                <img src="img/estrelas_4.png" alt="4 estrelas">
+                <h2>Adobe Photoshop</h2>
+            </div>
+            <hr class="hab_divisoria">
+            <div class="hab_parte">
+                <img src="img/estrelas_4.png" alt="4 estrelas">
+                <h2>Adobe Illustrator</h2>
+            </div>
+            <hr class="hab_divisoria">
+            <div class="hab_parte">
+                <img src="img/estrelas_4.png" alt="4 estrelas">
+                <h2>Figma</h2>
+            </div>
+            <hr class="hab_divisoria">
+            <div class="hab_parte">
+                <img src="img/estrelas_3.png" alt="3 estrelas">
+                <h2>Blender</h2>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="footer">
+        <div class="footer_principal">
+            <div class="parte_esquerdo">
+                <p>Site feito com &#x1F499; por Marco Antonio Arantes</p>
+                <p>Todos os direitos reservados © 2024</p>
+            </div>
+            <div class="parte_direito">
+                <div class="parte_direito_cima">
+                    <a href="https://www.linkedin.com/in/marco-antonio-arantes/" target="_blank"> <img src="img/linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://github.com/maarantes" target="_blank"> <img src="img/github.png" alt="GitHub"></a>
+                    <a href="https://www.behance.net/marcoaarantes" target="_blank"> <img src="img/behance.png" alt="Behance"></a>
+                </div>
+                <div class="botao_top">Voltar para o topo</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        const formacaoData = [
+            {
+                nome: "FATEC São José dos Campos - Prof. Jessen Vidal",
+                curso: "Tecnólogo em Desenvolvimento de Software Multiplataforma",
+                data: "ago 2023 - ago 2026",
+                texto_pequeno: "Grade do curso:",
+                habilidades: ["Algoritmo e Lógica de Programação", "Desenvolvimento Web", "Engenharia de Software", "Modelagem de Banco de Dados", "Sistemas e Redes Operacionais", "Design Digital"]
+            },
+            {
+                nome: "EBAC - Escola Britânica de Artes Criativas",
+                curso: "Profissão: UX/UI Design",
+                data: "mar 2023 - set 2024",
+                texto_pequeno: "Habilidades sendo desenvolvidas:",
+                habilidades: ["Experiência e Interface do Usuário", "UX Research, UX Writing, Desk Research", "Jornada do Usuário, Storytelling, Benchmark", "Protótipos de baixa, média e alta fidelidade", "Cores, Tipografia, Gestalt, Layout e Composição", "Figma, Prototipagem e Microinterações", "Design Responsivo, Pixel Perfect Design", "Design Thinking, Testes de Usabilidade"]
+            },
+            {
+                nome: "Mapa Educação",
+                curso: "Curso de liderança política",
+                data: "jan 2022 - dez 2022",
+                texto_pequeno: "Habilidades desenvolvidas:",
+                habilidades: ["Responsabilidade", "Cooperação", "Comunicação", "Pensamento Crítico", "Poder de ação", "Liderança", "Valorização da Diversidade"]
+            },
+            {
+                nome: "Colégios Univap Aquarius",
+                curso: "Ensino Médio regular",
+                data: "fev 2019 - dez 2022",
+                texto_pequeno: "Entrei no 9º ano em 2019, realizei o Ensino Médio de 2020 a 2022",
+                habilidades: []
+            },
+            {
+                nome: "Saga - School of Arts, Games and Animation",
+                curso: "Curso START",
+                data: "2016 - 2020",
+                texto_pequeno: "Habilidades desenvolvidas:",
+                habilidades: ["Arte Vetorial (Adobe Illustrator)", "Edição de Imagens (Adobe Photoshop)", "Desenho e Pintura Digital (Adobe Photoshop)", "Modelagem 3D (Autodesk Maya, Blender, Zbrush, Substance Painter)", "Animação (Autodesk Maya)", "Edição de Vídeo (Adobe Premiere)", "Composição e Efeito de Vídeo (Adobe After Effects)"]
+            },
+            {
+                nome: "Super Geeks",
+                curso: "Curso de Programação",
+                data: "2016 - 2017",
+                texto_pequeno: "Habilidades desenvolvidas:",
+                habilidades: ["Lógica de Programação (Python)", "Programação de Jogos (Unity, Unreal Engine, GameMaker, Roblox)"]
+            },
+            {
+                nome: "FISK",
+                curso: "Escola de Inglês",
+                data: "2014 - 2020",
+                texto_pequeno: "Notas importantes:",
+                habilidades: ["Teste de proficiência internacional MET: 69", "Nível CEFR: C1"]
+            }
+        ];
+
+        function renderFormacao() {
+            const container = document.getElementById("formacao-container");
+            
+            formacaoData.forEach((item, index) => {
+                const card = document.createElement("div");
+                card.className = "card_curso";
+                
+                const listaHTML = item.habilidades.map(h => `<li>${h}</li>`).join('');
+
+                card.innerHTML = `
+                    <h1>${item.nome}</h1>
+                    <p>${item.curso}</p>
+                    <p class="card_curso_data">${item.data}</p>
+                    <button class="card_curso_botao ler_mais">Ler mais</button>
+                    <div class="card_curso_extendido" style="display: none;">
+                        <hr class="card_curso_hr">
+                        <p>${item.texto_pequeno}</p>
+                        <ul>${listaHTML}</ul>
+                        <button class="card_curso_botao ler_menos">Ler menos</button>
+                    </div>
+                `;
+                container.appendChild(card);
+
+                const btnMais = card.querySelector(".ler_mais");
+                const btnMenos = card.querySelector(".ler_menos");
+                const extensao = card.querySelector(".card_curso_extendido");
+
+                btnMais.addEventListener("click", () => {
+                    extensao.style.display = "block";
+                    btnMais.style.display = "none";
+                    card.classList.add("borda_azul_ativo");
+                });
+
+                btnMenos.addEventListener("click", () => {
+                    extensao.style.display = "none";
+                    btnMais.style.display = "block";
+                    card.classList.remove("borda_azul_ativo");
+                });
+            });
+        }
+
+        renderFormacao();
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <title>Home | Marco A.</title>
+  </head>
+
+  <body>
+    <header id="top" class="navbar">
+      <img src="img/logo_azul.png" alt="Logo Marco A." />
+      <div class="navbar_hamburguer">
+        <div class="navbar_hamburguer_linha"></div>
+        <div class="navbar_hamburguer_linha"></div>
+        <div class="navbar_hamburguer_linha"></div>
+      </div>
+      <nav class="navbar_menu">
+        <a href="index.html" class="navbar_menu_item" id="nav_home">Home</a>
+        <a href="sobre_mim.html" class="navbar_menu_item" id="nav_sobre"
+          >Sobre mim</a
+        >
+        <a href="formacao.html" class="navbar_menu_item" id="nav_formacao"
+          >Formação</a
+        >
+        <a href="projetos.html" class="navbar_menu_item" id="nav_projetos"
+          >Projetos</a
+        >
+      </nav>
+    </header>
+
+    <hr class="divisoria_navbar" />
+
+    <main class="margem">
+      <section class="hero_banner" id="hero_banner">
+        <div class="hero_banner_parte_esquerda">
+          <h1 class="hero_banner_titulo">Meu nome é</h1>
+          <span class="gradient">Marco Antonio</span>
+          <div class="imagem_responsivo">
+            <img src="img/marco.png" alt="Foto de Marco Antonio" />
+          </div>
+          <div class="hero_banner_palavras">
+            <p>Desenvolvedor Web</p>
+            <p>Designer UX/UI</p>
+            <p>Product Designer</p>
+            <p>UX Writer</p>
+            <p>Designer Gráfico</p>
+          </div>
+          <button class="botao_azul" onclick="downloadPDF()">
+            Baixar currículo <img src="img/icone_pdf.png" alt="Ícone PDF" />
+          </button>
+          <div class="hero_banner_contato">
+            <a
+              href="https://www.linkedin.com/in/marco-antonio-arantes/"
+              target="_blank"
+            >
+              <img src="img/linkedin.png" alt="LinkedIn"
+            /></a>
+            <a href="https://github.com/maarantes" target="_blank">
+              <img src="img/github.png" alt="GitHub"
+            /></a>
+            <a href="https://www.behance.net/marcoaarantes" target="_blank">
+              <img src="img/behance.png" alt="Behance"
+            /></a>
+          </div>
+        </div>
+        <div class="hero_banner_parte_direita">
+          <img src="img/marco.png" alt="Foto de Marco Antonio" />
+        </div>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2 class="cards_conhecer_titulo">
+          Explore meu portfólio para me conhecer melhor:
+        </h2>
+        <div class="cards">
+          <div class="card_conhecer">
+            <h2>Sobre Mim</h2>
+            <a href="sobre_mim.html" class="card_botao">Acessar</a>
+          </div>
+          <div class="card_conhecer">
+            <h2>Formação</h2>
+            <a href="formacao.html" class="card_botao">Acessar</a>
+          </div>
+          <div class="card_conhecer">
+            <h2>Projetos</h2>
+            <a href="projetos.html" class="card_botao">Acessar</a>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2 class="contato_titulo">Entre em contato comigo:</h2>
+        <a
+          href="mailto:marcoantoniopou@gmail.com?subject=Comissão"
+          target="_blank"
+        >
+          <button class="botao_azul">
+            Enviar E-mail
+            <img class="icone_enviar" src="img/enviar.png" alt="Ícone Enviar" />
+          </button>
+        </a>
+      </section>
+    </main>
+
+    <footer id="footer">
+      <div class="footer_principal">
+        <div class="parte_esquerdo">
+          <p>Site feito com &#x1F499; por Marco Antonio Arantes</p>
+          <p>Todos os direitos reservados © 2024</p>
+        </div>
+        <div class="parte_direito">
+          <div class="parte_direito_cima">
+            <a
+              href="https://www.linkedin.com/in/marco-antonio-arantes/"
+              target="_blank"
+            >
+              <img src="img/linkedin.png" alt="LinkedIn"
+            /></a>
+            <a href="https://github.com/maarantes" target="_blank">
+              <img src="img/github.png" alt="GitHub"
+            /></a>
+            <a href="https://www.behance.net/marcoaarantes" target="_blank">
+              <img src="img/behance.png" alt="Behance"
+            /></a>
+          </div>
+          <div class="botao_top">Voltar para o topo</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+      function downloadPDF() {
+        var link = document.createElement("a");
+        link.href = "curriculo.pdf";
+        link.download = "curriculo.pdf";
+        link.dispatchEvent(new MouseEvent("click"));
+      }
+    </script>
+  </body>
+</html>

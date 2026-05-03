@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <title>Projetos | Marco A.</title>
+  </head>
+
+  <body>
+    <header id="top" class="navbar">
+      <img src="img/logo_azul.png" alt="Logo Marco A." />
+      <div class="navbar_hamburguer">
+        <div class="navbar_hamburguer_linha"></div>
+        <div class="navbar_hamburguer_linha"></div>
+        <div class="navbar_hamburguer_linha"></div>
+      </div>
+      <nav class="navbar_menu">
+        <a href="index.html" class="navbar_menu_item" id="nav_home">Home</a>
+        <a href="sobre_mim.html" class="navbar_menu_item" id="nav_sobre"
+          >Sobre mim</a
+        >
+        <a href="formacao.html" class="navbar_menu_item" id="nav_formacao"
+          >Formação</a
+        >
+        <a href="projetos.html" class="navbar_menu_item" id="nav_projetos"
+          >Projetos</a
+        >
+      </nav>
+    </header>
+
+    <hr class="divisoria_navbar" />
+
+    <main class="margem">
+      <section class="hero_banner_compacto">
+        <h1 class="hero_banner_compacto_titulo">Projetos</h1>
+        <p class="hero_banner_compacto_subtitulo">
+          Confira abaixo projetos que desenvolvi ou estou desenvolvendo ao longo
+          de minha formação.
+        </p>
+      </section>
+
+      <hr />
+
+      <section class="projetos">
+        <h2 class="projetos_titulo">Projetos acadêmicos</h2>
+        <div class="projetos_card_wrapper" id="projeto_wrapper"></div>
+        <div class="botoes_scroll">
+          <button class="botao_scroll" onclick="rolar_tras()">
+            <img src="img/seta_scroll.png" alt="Seta para trás" />
+          </button>
+          <button class="botao_scroll" onclick="rolar_frente()">
+            <img src="img/seta_scroll.png" alt="Seta para frente" />
+          </button>
+        </div>
+
+        <div class="projeto_modal">
+          <div class="projeto_modal_content">
+            <div class="projeto_modal_cima">
+              <p class="projeto_modal_titulo">Sobre este projeto</p>
+              <span class="projeto_modal_close"
+                ><img src="img/icone_fechar.svg" alt="Fechar modal"
+              /></span>
+            </div>
+            <hr />
+            <p class="projeto_modal_titulo_menor">Descrição</p>
+            <p id="projeto_modal_texto"></p>
+            <p class="projeto_modal_titulo_menor">Tecnologias Utilizadas</p>
+            <div class="projeto_modal_imagens" id="projeto_modal_imagens"></div>
+          </div>
+        </div>
+
+        <hr />
+
+        <h2 class="projetos_titulo_nada_aqui">Projetos Profissionais</h2>
+        <div class="projetos_card_wrapper" id="projeto_wrapper_prof"></div>
+        <div class="botoes_scroll">
+          <button
+            class="botao_scroll"
+            id="botao_scroll_prof"
+            onclick="rolar_tras_prof()"
+          >
+            <img src="img/seta_scroll.png" alt="Seta para trás" />
+          </button>
+          <button
+            class="botao_scroll"
+            id="botao_scroll_prof"
+            onclick="rolar_frente_prof()"
+          >
+            <img src="img/seta_scroll.png" alt="Seta para frente" />
+          </button>
+        </div>
+
+        <hr />
+
+        <h2 class="projetos_titulo_nada_aqui">Projetos Pessoais</h2>
+        <p class="projetos_nada_aqui">Ainda não há nada para ver aqui.</p>
+      </section>
+    </main>
+
+    <footer id="footer">
+      <div class="footer_principal">
+        <div class="parte_esquerdo">
+          <p>Site feito com &#x1F499; por Marco Antonio Arantes</p>
+          <p>Todos os direitos reservados © 2024</p>
+        </div>
+        <div class="parte_direito">
+          <div class="parte_direito_cima">
+            <a
+              href="https://www.linkedin.com/in/marco-antonio-arantes/"
+              target="_blank"
+            >
+              <img src="img/linkedin.png" alt="LinkedIn"
+            /></a>
+            <a href="https://github.com/maarantes" target="_blank">
+              <img src="img/github.png" alt="GitHub"
+            /></a>
+            <a href="https://www.behance.net/marcoaarantes" target="_blank">
+              <img src="img/behance.png" alt="Behance"
+            /></a>
+          </div>
+          <div class="botao_top">Voltar para o topo</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    <script>
+      const projetosAcademicos = [
+        {
+          nome: "Criança Renal",
+          descricao:
+            "(FATEC API - 1° SEM) Site destinado a conscientizar a população sobre crianças que sofrem de Insuficiência Renal Crônica (IRC), com uma página de blog",
+          imagem: "img/card_nefro.png",
+          link: "https://github.com/TeamHiveAPI/API-2023.2",
+          botao_escrito: "Repositório",
+          modal: "1",
+        },
+        {
+          nome: "Woodpecker",
+          descricao:
+            "(FATEC API - 2° SEM) Site de gerenciamento de chamada de serviço (Help Desk) de uma loja de eletrodomésticos",
+          imagem: "img/card_woodpecker.png",
+          link: "https://github.com/TeamHiveAPI/API-2024.01",
+          botao_escrito: "Repositório",
+          modal: "9",
+        },
+        {
+          nome: "Portal FAPG",
+          descricao:
+            "(FATEC API - 3° SEM) Portal de transparência da instituição FAPG (Fundação de Apoio à Pesquisa de Pós-Graduandos)",
+          imagem: "img/card_fapg.png",
+          link: "https://github.com/A-Sync-Fatec/api-fatec-3sem-24",
+          botao_escrito: "Repositório",
+          modal: "10",
+        },
+        {
+          nome: "Tecsus",
+          descricao:
+            "(FATEC API - 4° SEM) Sistema IoT de monitoramento climático, focada na coleta e transmissão de dados de estações meteorológicas",
+          imagem: "img/placeholder.png",
+          link: "https://github.com/TeamHiveAPI/API-2025.01",
+          botao_escrito: "Github",
+          modal: "11",
+        },
+        {
+          nome: "Sistema Almox",
+          descricao:
+            "(FATEC API - 5° SEM) Aplicativo de gestão de almoxarifado militar com previsão de IA integrada",
+          imagem: "img/placeholder.png",
+          link: "https://github.com/TeamHiveAPI/API-2025.02",
+          botao_escrito: "Github",
+          modal: "12",
+        },
+        {
+          nome: "Site UNES",
+          descricao:
+            "Site de uma universidade fictícia integrado com Flask e um banco de dados (MySQL)",
+          imagem: "img/card_unes.png",
+          link: "https://github.com/maarantes/Desenvolvimento_Web",
+          botao_escrito: "Repositório",
+          modal: "2",
+        },
+        {
+          nome: "Portfólio",
+          descricao:
+            "Portfólio pessoal (este site!) que reúne as principais informações acadêmicas sobre mim",
+          imagem: "img/card_portfolio.png",
+          link: "index.html",
+          botao_escrito: "Estamos aqui!",
+          modal: "3",
+        },
+        {
+          nome: "Projeto Educatech",
+          descricao:
+            "Projeto de Letramento Digital que desenvolvi ao longo do curso Jornada do Líder no Mapa Educação",
+          imagem: "img/card_educatech.png",
+          link: "https://docs.google.com/presentation/d/1QoyCDg5e0w7mHqd7Z8F7pxUwl0SPssPuGIhCnkKW5XY/edit?usp=sharing",
+          botao_escrito: "Acessar Site",
+          modal: "4",
+        },
+        {
+          nome: "Estudamat",
+          descricao:
+            "Projeto da EBAC de um Protótipo Navegável para um aplicativo gamificado de incentivo à aprendizagem de Matemática",
+          imagem: "img/card_estudamat.png",
+          link: "https://www.behance.net/gallery/193553035/UXUI-Study-Case-Estudamat",
+          botao_escrito: "Behance",
+          modal: "5",
+        },
+        {
+          nome: "Itaú Store",
+          descricao:
+            "Projeto Final da EBAC de um Protótipo Navegável para um aplicativo de gerenciamento de pontos, milhas e cashback do Banco Itaú",
+          imagem: "img/card_itau.png",
+          link: "https://www.behance.net/gallery/194386719/UXUI-Study-Case-Itau-Store",
+          botao_escrito: "Behance",
+          modal: "6",
+        },
+      ];
+
+      const projetosProfissionais = [
+        {
+          nome: "Advocacia Thaís",
+          descricao: "Landing page completa de um escritório de advocacia",
+          imagem: "img/card_thais.png",
+          link: "https://thaisadvocacia.vercel.app",
+          botao_escrito: "Acessar Site",
+          modal: "7",
+        },
+        {
+          nome: "Arerê Eventos",
+          descricao: "Branding completo de uma marca que trabalha com eventos",
+          imagem: "img/card_arere.png",
+          link: "https://www.behance.net/gallery/193918609/Branding-Arere-Eventos",
+          botao_escrito: "Behance",
+          modal: "8",
+        },
+      ];
+
+      var modal_data = {
+        modal_data1: {
+          text: "Parceria com um grupo de mães para a criação de um site destinado a conscientizar a população sobre crianças que sofrem de Insuficiência Renal Crônica (IRC), com funções de fazer login, postar histórias em um blog e uma página de administrador, que aceita ou rejeita pedidos de postagens no blog. <br> O gerenciamento do time foi feito através da metodologia ágil SCRUM e o versionamento foi feito com Git e Github. <br>&nbsp<br> 1) Fui encarregado da criação de um protótipo 100% navegável usando conhecimentos de UX/UI, como Layout e Composição, Tipografia, Cores, Pixel Perfect Design, UX Writing, Storytelling e Design Responsivo. <br>&nbsp<br> 2) Construção de um site de verdade baseado no protótipo e do feedback das mães, usando HTML, CSS e Javascript puro (front-end) juntamente com Flask (back-end). <br>&nbsp<br> 3) Participei do time de front-end, principalmente na construção de itens essenciais como Navbar, Hero Banner, Cards e Footer - todos responsivos.",
+          images: [
+            "img/logo_HTML.png",
+            "img/logo_CSS.png",
+            "img/logo_javascript.png",
+            "img/logo_figma.png",
+            "img/logo_bootstrap.png",
+            "img/logo_python.png",
+            "img/logo_flask.png",
+            "img/logo_mysql.png",
+          ],
+        },
+
+        modal_data2: {
+          text: "Construção de um site de uma universidade fictícia com o objetivo de treinar minhas habilidades em HTML, CSS, Javascript, Flask e MYSQL. <br>&nbsp<br> Possui uma página inicial, uma página Sobre Nós com o objetivo de convencer o aluno a estudar com eles, um link fictício no navbar com um modal de confirmação e uma página de contato. O formulário de contato é funcional e há uma página de admin, em que é possível visualizar as mensagens enviadas por usuários e depois apagá-las.",
+          images: [
+            "img/logo_HTML.png",
+            "img/logo_CSS.png",
+            "img/logo_javascript.png",
+            "img/logo_figma.png",
+            "img/logo_python.png",
+            "img/logo_flask.png",
+            "img/logo_mysql.png",
+          ],
+        },
+
+        modal_data3: {
+          text: "Você está aqui! <br>&nbsp<br> Portfólio digital que apresenta minhas informações básicas, canais de contato, meus serviços de freelance oferecidos, minha formação resumida e, por último, todos os meus projetos de Desenvolvimento Web Responsivo e Design UX/UI <br>&nbsp<br> 1) Criação de um protótipo 100% navegável usando conhecimentos de UX/UI, como Layout e Composição, Tipografia, Cores, Pixel Perfect Design, UX Writing e Design Responsivo <br>&nbsp<br> 2) Construção do site baseado no protótipo, usando HTML, CSS, Javascript e Flask <br>&nbsp<br> 3) Publicação do site através da plataforma Vercel",
+          images: [
+            "img/logo_HTML.png",
+            "img/logo_CSS.png",
+            "img/logo_javascript.png",
+            "img/logo_figma.png",
+            "img/logo_photoshop.png",
+            "img/logo_python.png",
+            "img/logo_flask.png",
+          ],
+        },
+
+        modal_data4: {
+          text: "Projeto de Conclusão de Curso do Mapa Educação em que o objetivo foi explorar e solucionar algum problema enfrentado pela juventude brasileira. <br>&nbsp<br> 1) Eu escolhi construir um material instrutivo de como utilizar a ferramenta Google Docs, que é essencial para realizar trabalhos escolares, com o objetivo de ampliar o letramento digital dos jovens. <br>&nbsp<br> 2) Usei meus conhecimentos de UX/UI para fazer com que o documento fosse simples e intuitivo de entender, tomando cuidado com o Layout e Composição, Tipografia, Cores e UX Writing.",
+          images: ["img/logo_google_slides.png"],
+        },
+
+        modal_data5: {
+          text: "Este projeto teve como objetivo aplicar todos os meus conhecimentos de UX/UI que adquiri ao longo do curso de UX/UI da EBAC. <br>&nbsp<br> 1) Comecei definindo o problema que gostaria de explorar: a dificuldade do aluno comum em aprender matemática. <br>&nbsp<br> 2) Construção do projeto na seguinte ordem: <br>&nbsp<br> • Benchmark de competidores <br>&nbsp<br> • Desk Research do problema <br>&nbsp<br> • Matriz CSD <br>&nbsp<br> • Proto Persona <br>&nbsp<br> • Priorização de Stakeholders <br>&nbsp<br> • User Research através de um formulário e um Grupo Focal <br>&nbsp<br> • Persona <br>&nbsp<br> • Mapa de Empatia <br>&nbsp<br> • Jornada do usuário <br>&nbsp<br> • Ideação <br>&nbsp<br> 3) Na ideação, fiz um brainstorming para arquitetar minha solução digital definitiva: um app gamificado de incentivo a aprendizagem de Matemática, chamado de Estudamat. <br>&nbsp<br> 4) Construí o protótipo navegável do app usando todos conceitos de UX/UI e fiz alguns kits, como o UI Kit, Tipografia, Iconografia e Componentes <br>&nbsp<br> 5) Montei o Branding do app e, finalmente, publiquei o Study Case completo no Behance. <br>&nbsp<br>",
+          images: [
+            "img/logo_figma.png",
+            "img/logo_photoshop.png",
+            "img/logo_illustrator.png",
+          ],
+        },
+
+        modal_data6: {
+          text: "Este projeto é a última entrega do curso de UX/UI da EBAC. Ele teve como objetivo encontrar um problema que o Banco Itaú possuia e oferecer uma solução digital para ele através de um app. <br>&nbsp<br> 1) Comecei definindo o problema que gostaria de explorar: a dificuldade do cliente de gerenciar seus pontos, milhas e cashback. <br>&nbsp<br> 2) Construção do projeto na seguinte ordem: <br>&nbsp<br> • Benchmark de competidores <br>&nbsp<br> • Desk Research do problema <br>&nbsp<br> • Matriz CSD <br>&nbsp<br> • Proto Persona <br>&nbsp<br> • Priorização de Stakeholders <br>&nbsp<br> • User Research através de um formulário e um Grupo Focal <br>&nbsp<br> • Persona <br>&nbsp<br> • Mapa de Empatia <br>&nbsp<br> • Jornada do usuário <br>&nbsp<br> • Ideação <br>&nbsp<br> 3) Na ideação, fiz um brainstorming para arquitetar minha solução digital definitiva: um app que reúne todas os pontos, milhas e cashback de forma intuitiva, em um lugar só. É possível gastar todas estas moedas na loja do próprio app. <br>&nbsp<br> 4) Construí o protótipo navegável do app usando todos conceitos de UX/UI e fiz alguns kits, como o UI Kit, Tipografia, Iconografia e Componentes <br>&nbsp<br> 5) Montei o Branding do app e, finalmente, publiquei o Study Case completo no Behance. <br>&nbsp<br>",
+          images: [
+            "img/logo_figma.png",
+            "img/logo_photoshop.png",
+            "img/logo_illustrator.png",
+          ],
+        },
+
+        modal_data7: {
+          text: "Landing page feita para uma cliente que possuia o desejo de conquistar um espaço online para divulgar seu escritório próprio de advocacia. <br>&nbsp<br> Possui uma apresentação pessoal, informa-se os temas com que ela trabalha, endereço da agência e, por último, uma seção CTA (Call To Action).",
+          images: [
+            "img/logo_html.png",
+            "img/logo_css.png",
+            "img/logo_javascript.png",
+            "img/logo_flask.png",
+          ],
+        },
+
+        modal_data8: {
+          text: "Branding de marca feito para uma cliente que gostaria de abrir uma empresa de eventos. <br>&nbsp<br> Possui informações do logo, logotipo, missão e valores da marca, escolhas de tipografia, cores e vários mockups para ilustrar melhor a alma da marca.",
+          images: ["img/logo_photoshop.png", "img/logo_illustrator.png"],
+        },
+
+        modal_data9: {
+          text: "Site com o objetivo de ajudar uma empresa fictícia a auxiliar seus clientes via suporte (Help Desk). Os clientes podem abrir tickets com algum problema ou dúvida que enfrentam. Os Técnicos podem responder os tickets e o Administrador gerencia os Suportes (horário de trabalho e especialização), SLAs e as perguntas do FAQ. O Admin também pode visualizar a página de Métricas, que mostra o desempenho do Help Desk e seus equipamentos e tickets.<br>&nbsp<br> Neste semestre eu fui escolhido como o Product Owner, significando que tive algumas responsabilidades a mais. <br>&nbsp<br> 1) Como Product Owner, fui responsável pela criação do Product Backlog, DoD e DoR, interação com o cliente <br>&nbsp<br> 2) Responsável pela construção do protótipo navegável no Figma <br>&nbsp<br> 3) Principal responsável pela criação do Front-End do site <br>&nbsp<br> 4) Participação na construção de componentes React <br>&nbsp<br> 5) Participação na integração entre o Front-End e Back-End <br>&nbsp<br>",
+          images: [
+            "img/logo_react.png",
+            "img/logo_sass.png",
+            "img/logo_typescript.png",
+            "img/logo_node.png",
+            "img/logo_express.png",
+            "img/logo_prisma.png",
+            "img/logo_JWT.png",
+            "img/logo_figma.png",
+            "img/logo_mysql.png",
+          ],
+        },
+
+        modal_data10: {
+          text: "Esta aplicação web tem o objetivo de ajudar a fundação FAPG a mostrar seus processos para o público com 100% de transparência, com ferramentas de administrador para criarem, editarem e excluirem vários atributos.<br>&nbsp<br> O sistema possui um CRUD de projetos, bolsistas, convênios, materiais e análises de projeto. Administradores do tipo 2 abrem uma solicitação de permissão aos administradores do tipo 1 ao realizarem uma operação CRUD. Cada operação fica guardada em uma página de histórico. É possivel exportar os projetos via PDF ou Excel, ou também gerar um relatório anual com diversos gráficos, que também estão disponíveis na página Dashboard.  <br>&nbsp<br> Inicialmente, eu estava em outra equipe de desenvolvimento. Entretanto, devido ao fato de termos problemas de comunicação e estarmos em poucas pessoas, concordamos em desfazermos o time e nos juntarmos a outros times. Assim, eu me integrei ao time A-SYNC. Apesar de ter que abandonar o código do meu time antigo, eu tive uma excelente oportunidade de aprender a fazer manutenção de código de outras pessoas e de aplicar melhores práticas de UX/UI no layout desse novo time. O novo projeto, apesar de ser mais funcional, demandava maior atenção à experiência do usuário, o que me permitiu contribuir significativamente nesse aspecto. Também acredito que melhorei minhas habilidades de comunicação e colaboração, ao ter que sair da minha zona de conforto e ter que trabalhar com novos colegas.<br>&nbsp<br> Neste semestre eu fui escolhido como o Product Owner, significando que tive algumas responsabilidades a mais. <br>&nbsp<br> 1) Contribuições Pessoais: como Product Owner, fui responsável pela criação do Product Backlog, DoD e DoR e interação com o cliente. Fui responsável pelo protótipo navegável e contribui principalmente no Front-End da aplicação, criando diversos componentes, estilizando as páginas e conectando o Front-end com o Back-end via axios ou JWT. Também tive a oportunidade de corrigir alguns erros no back-end para treinar minhas habilidades. <br>&nbsp<br> 2) Hard Skills efetivamente desenvolvidas: React, Figma, Java Spring Boot, HTML, CSS, MySQL <br>&nbsp<br> 3) Soft Skills efetivamente desenvolvidas: <br>&nbsp<br> a) Comunicação: Durante o projeto, uma boa comunicação foi essencial para eu poder alinhar minhas ideias com o resto do time, especialmente nas reuniões diárias (daily), que acontecia com muito mais frequência no A-SYNC. <br>&nbsp<br> b) Cumprimento de Prazos: Como a aplicação do A-SYNC possuía diversas funcionalidades, tive que me organizar ainda mais para produzir o código de maneira que eu respeitasse as deadlines, tanto da faculdade como as das combinadas pelo meu próprio time. <br>&nbsp<br> c) Colaboração em Equipe: O grande número de integrantes (08 pessoas) no grupo fez com que todos tivessem que se empenhar mais nesse quesito, especialmente na troca de ideias, debates e acompanhamento de cada integrante. <br>&nbsp<br> d) Proatividade: Pratiquei essa habilidade ao perceber diversos pain points que nossa aplicação sofria, principalmente no front-end, e tentava resolvê-los da forma mais rápida e eficiente possível, comunicando todo meu progresso ao time. Também tomei iniciativas para aplicar outras funcionalidades secundárias para melhorar ainda mais a experiência do usuário na nossa aplicação.  <br>&nbsp<br> e) Autonomia: Durante todo o desenvolvimento, demonstrei autonomia ao buscar, de forma independente, soluções para implementar novas funcionalidades e aprimorar o código existente. Minha iniciativa foi direcionada para garantir a eficiência e a qualidade da entrega final, contribuindo de maneira significativa para o sucesso do projeto.",
+          images: [
+            "img/logo_react.png",
+            "img/logo_typescript.png",
+            "img/logo_java.png",
+            "img/logo_spring.png",
+            "img/logo_node.png",
+            "img/logo_JWT.png",
+            "img/logo_figma.png",
+            "img/logo_mysql.png",
+          ],
+        },
+
+        modal_data11: {
+          text: "Desenvolvido em parceria entre a Fatec SJC e a empresa Tecsus, este projeto consiste em uma solução IoT completa para monitoramento climático, focada na coleta, processamento e visualização de dados meteorológicos para fins de conscientização ambiental.<br>&nbsp<br> O sistema oferece um gerenciamento robusto (CRUD) de estações meteorológicas, sensores e usuários. O grande diferencial técnico é o motor de regras para 'Alertas Definidos', onde o sistema monitora condições críticas em tempo real e dispara notificações visuais no portal. Além da área administrativa, a aplicação conta com um Dashboard dinâmico para análise de gráficos e uma Página de Aprendizado, transformando dados técnicos em conteúdo educativo acessível.<br>&nbsp<br> Participar deste projeto foi uma experiência distinta por envolver um cliente real (Tecsus) e a integração com conceitos de IoT. O desafio não foi apenas criar telas, mas garantir que os dados coletados fossem apresentados de forma íntegra e que o sistema de alertas fosse confiável. Tive a oportunidade de entender como a tecnologia pode ser aplicada diretamente na sustentabilidade e educação, saindo do escopo puramente comercial para um escopo de impacto social.<br>&nbsp<br> Neste semestre, atuei como Desenvolvedor Front-End, sendo peça-chave na entrega das funcionalidades.<br>&nbsp<br> 1) Hard Skills efetivamente desenvolvidas: React, TypeScript, Java Spring Boot, MySQL, Chart.js (Visualização de Dados), Integração de APIs.<br>&nbsp<br> 2) Soft Skills efetivamente desenvolvidas:<br>&nbsp<br> a) Visão de Produto (Product Sense): Ao desenvolver a Página de Aprendizado e o Dashboard, precisei exercitar a empatia para entender como traduzir dados brutos de sensores em informações visuais que qualquer pessoa pudesse entender.<br>&nbsp<br> b) Comunicação com Stakeholders: A interação com a parceira Tecsus exigiu uma comunicação clara para alinhar as expectativas sobre a lógica dos alertas climáticos e a fidelidade dos dados exibidos.<br>&nbsp<br> c) Resolução de Problemas Complexos: A lógica de 'Alertas Definidos' exigiu um pensamento analítico aguçado para criar regras condicionais que funcionassem corretamente para diferentes tipos de sensores.<br>&nbsp<br> d) Trabalho em Equipe Interdisciplinar: A complexidade do sistema (unindo cadastro técnico e área educativa) exigiu uma colaboração constante entre o time de Back-End e Front-End para garantir que as notificações chegassem ao painel em tempo real.<br>&nbsp<br> e) Organização e Prazos: Com múltiplos CRUDs e funcionalidades críticas como as Notificações de Alertas, tive que gerenciar meu tempo rigorosamente para entregar módulos testados e funcionais dentro das sprints.",
+          images: [
+            "img/logo_react.png",
+            "img/logo_typescript.png",
+            "img/logo_sass.png",
+            "img/logo_python.png",
+          ],
+        },
+
+        modal_data12: {
+          text: "Este projeto, desenvolvido no 5º semestre, teve como desafio a modernização da gestão logística de um almoxarifado militar. O objetivo foi substituir processos burocráticos e manuais por uma aplicação eficiente, garantindo rastreabilidade e segurança na movimentação de materiais sensíveis e farmacêuticos.<br>&nbsp<br> A solução é um aplicativo desenvolvido em Flutter que centraliza o controle de estoque. As principais funcionalidades incluem leitura de QR Code para movimentação rápida de itens, gestão rigorosa de lotes e validades (essencial para o setor de farmácia), e hierarquia de acesso baseada em patentes (Soldado, Tenente, Coronel). Além disso, o sistema conta com um diferencial de Inteligência Artificial que analisa o histórico de consumo para prever demandas futuras e sugerir níveis de reabastecimento via Dashboard.<br>&nbsp<br> Participar deste projeto elevou meu nível técnico ao exigir a integração de uma aplicação mobile com serviços de Back-End robustos (Supabase e Node.js) e microsserviços de IA em Python. Foi uma oportunidade de trabalhar com regras de negócio rígidas, típicas do ambiente militar, onde a precisão dos dados e a segurança do acesso são inegociáveis. A necessidade de criar uma interface responsiva para tablets e celulares também aprimorou minha visão de UX/UI Mobile.<br>&nbsp<br> Durante o semestre, atuei como Scrum Master e Desenvolvedor Fullstack, garantindo a coesão entre o time e a entrega das sprints.<br>&nbsp<br> 1) Hard Skills efetivamente desenvolvidas: Flutter (Dart), Supabase, Node.js, Python (para IA/Análise de Dados), Figma, Gestão de APIs REST.<br>&nbsp<br> 2) Soft Skills efetivamente desenvolvidas:<br>&nbsp<br> a) Gestão de Complexidade: Lidar com múltiplas regras de negócio (validade de lotes, níveis de permissão militar e fornecedores) exigiu uma capacidade analítica para traduzir burocracia em código limpo.<br>&nbsp<br> b) Visão Estratégica (Business Intelligence): Ao trabalhar com as funcionalidades de IA para predição de estoque, desenvolvi uma visão mais voltada para como os dados podem gerar valor e economia para a organização.<br>&nbsp<br> c) Adaptação Tecnológica: A curva de aprendizado para implementar Flutter integrado com um backend em Node e scripts em Python exigiu flexibilidade e estudo autodidata rápido.<br>&nbsp<br> d) Trabalho em Equipe Ágil: Com um backlog denso dividido em 3 Sprints, a comunicação diária e o uso eficaz do Trello foram vitais para não deixar débitos técnicos acumularem.<br>&nbsp<br> e) Foco na Experiência do Usuário (Mobile First): Desenvolver para dispositivos móveis me forçou a pensar na usabilidade em telas menores, priorizando a facilidade do escaneamento de QR Codes e botões acessíveis.",
+          images: ["img/logo_flutter.png", "img/logo_supabase.jpeg"],
+        },
+      };
+
+      const modal = document.querySelector(".projeto_modal");
+      const fechar = document.getElementsByClassName("projeto_modal_close")[0];
+
+      fechar.onclick = function () {
+        modal.style.display = "none";
+      };
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      function renderProjetos(lista, containerId) {
+        const container = document.getElementById(containerId);
+        lista.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = "card_projeto";
+          card.innerHTML = `
+                <img class="card_projeto_imagem" src="${item.imagem}" alt="Imagem do projeto ${item.nome}">
+                <h1 class="card_projeto_titulo">${item.nome}</h1>
+                <p class="card_projeto_desc">${item.descricao}</p>
+                <div class="card_projeto_botoes">
+                    <a href="${item.link}" target="_blank" class="card_projeto_botao">${item.botao_escrito}</a>
+                    <div class="card_projeto_botao_modal" data-modalid="modal_data${item.modal}">
+                        <img src="img/icone_info.svg" alt="Mais informações">
+                    </div>
+                </div>
+            `;
+          container.appendChild(card);
+
+          const btnModal = card.querySelector(".card_projeto_botao_modal");
+          btnModal.addEventListener("click", function () {
+            const id = this.getAttribute("data-modalid");
+            document.getElementById("projeto_modal_texto").innerHTML =
+              modal_data[id].text;
+            const images = modal_data[id].images;
+            const modal_imagens_div = document.getElementById(
+              "projeto_modal_imagens",
+            );
+            modal_imagens_div.innerHTML = "";
+
+            for (let i = 0; i < images.length; i++) {
+              let img = document.createElement("img");
+              img.src = images[i];
+              img.className = "modal_imagem";
+              modal_imagens_div.appendChild(img);
+            }
+            modal.style.display = "flex";
+          });
+        });
+      }
+
+      renderProjetos(projetosAcademicos, "projeto_wrapper");
+      renderProjetos(projetosProfissionais, "projeto_wrapper_prof");
+
+      const scroll_projetos = document.getElementById("projeto_wrapper");
+      const scroll_projetos_prof = document.getElementById(
+        "projeto_wrapper_prof",
+      );
+
+      function obterLarguraCard(wrapper) {
+        const card = wrapper.querySelector(".card_projeto");
+        return card ? card.offsetWidth + 22 : 0;
+      }
+
+      function rolar_frente() {
+        scroll_projetos.scrollLeft += obterLarguraCard(scroll_projetos);
+      }
+      function rolar_tras() {
+        scroll_projetos.scrollLeft -= obterLarguraCard(scroll_projetos);
+      }
+      function rolar_frente_prof() {
+        scroll_projetos_prof.scrollLeft +=
+          obterLarguraCard(scroll_projetos_prof);
+      }
+      function rolar_tras_prof() {
+        scroll_projetos_prof.scrollLeft -=
+          obterLarguraCard(scroll_projetos_prof);
+      }
+    </script>
+  </body>
+</html>
